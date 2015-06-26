@@ -1,6 +1,23 @@
 <ion-view view-title="Chats">
   <ion-content>
+    <div class="padding">
+      <form name="formMessage">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Nome</span>
+            <input type="text" autocorrect="off" autocapitalize="off" ng-model="message.name" required />
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Mensagem</span>
+            <input type="text" autocorrect="off" autocapitalize="off" ng-model="message.text" required />
+          </label>
+          <button class="button button-clear" ng-click="addMessage()" ng-disabled="formMessage.$invalid">Enviar</button>
+        </div>
+      </form>
+    </div>
+
     <ion-list>
+      <ion-item class="item-divider">Mensagens</ion-item>
       <ion-item class="" ng-repeat="chat in chats" type="item-text-wrap">
         {{chat.name}}: {{chat.text}}
       </ion-item>
